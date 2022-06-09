@@ -10,12 +10,12 @@ namespace func_rocket
             var direction = target - rocket.Location;
             var d = rocket.Direction * .32;
             var v = rocket.Velocity.Angle * .68;
-            var average = (d + v);
-            if (Math.Abs(average - direction.Angle) < .03)
+            var sum = d + v;
+            if (Math.Abs(sum - direction.Angle) < .03)
             {
                 return Turn.None;
             }
-            else if (average - direction.Angle > 0)
+            else if (sum - direction.Angle > 0)
             {
                 return Turn.Left;
             }
